@@ -15,8 +15,15 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $val = 123;
-        return $this->render('default/index.html.twig', ['a' => $val]);
+        $someArray = [1, 2, 3];
+        $someValue = false;
+        return $this->render('default/index.html.twig', [
+            'a' => $val,
+            'some_array' => $someArray,
+            'some_value' => $someValue
+            ]);
     }
+
     /**
      * @Route("/feedback", name="feedback")
      */

@@ -2,6 +2,16 @@
 
 {% block body %}
 <div>Hellow {{ a }} </div>
+
+    {% if not some_value %}
+        YES!
+
+    {% endif %}
+
+    {% for key, some_item in some_array %}
+        <br>
+        {{ key }} =>  {{ some_item }}
+    {% endfor %}
 {% endblock %}
 
 {% block stylesheets %}
