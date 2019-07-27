@@ -1,16 +1,12 @@
 {% extends '@App/layout.html.twig' %}
 
 {% block body %}
-<div>Hello {{ a }} </div>
+    <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
+            mostly barebones HTML document.</p>
+    </div>
 
-    {% if not some_value %}
-        YES!
-    {% endif %}
-
-    {% for key, some_item in some_array %}
-        <br>
-        {{ key }} =>  {{ some_item }}
-    {% endfor %}
 {% endblock %}
 
 {% block stylesheets %}
