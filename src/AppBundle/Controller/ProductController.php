@@ -4,6 +4,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,9 +19,10 @@ class ProductController extends Controller
      */
     public function indexAction()
     {
-
-        $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findAll();
-
+        $products = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Product')
+            ->findAll();
         return ['products' => $products];
     }
 
@@ -28,16 +30,11 @@ class ProductController extends Controller
      * @Route("/products/{id}", name="product_item", requirements={"id": "[0-9]+"})
      * @Template()
      *
-     * @param $id
+     * @param Product $product
      * @return array
      */
-    public function showAction($id)
+    public function showAction(Product $product)
     {
-        $product = $this->getDoctrine()->getRepository('AppBundle:Product')->find($id);
-
-        if (!$product) {
-            throw $this->createNotFoundException('Product not found');
-        }
         return ['product' => $product];
     }
 }
